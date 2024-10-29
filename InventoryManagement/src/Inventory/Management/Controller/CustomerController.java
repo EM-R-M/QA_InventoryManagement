@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class CustomerController {
 
+    static CustomerService customerService = new CustomerService();
     public CustomerController() {}
 
-    public static void customerMenu() {
+    public void customerMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\tCUSTOMER MENU:");
         System.out.println("""
@@ -23,7 +24,15 @@ public class CustomerController {
         switch (userInput.toLowerCase().trim()){
 
             case "a": // CREATE
-                CustomerService.addCustomer();
+                System.out.println("Please input the customer's details below:");
+                System.out.print("\n\t Customer's Name: ");
+                String customerName = scanner.nextLine();
+                System.out.print("\tCustomer's Email: ");
+                String customerEmail = scanner.nextLine();
+                customerService.addCustomer(customerName, customerEmail);
+                System.out.println("\nCustomer: '" + customerName + "' successfully added");
+                System.out.println("PRESS ENTER TO CONTINUE");
+                scanner.nextLine();
                 break;
 
             case "f": // READ
@@ -43,5 +52,4 @@ public class CustomerController {
                 break;
         }
     }
-
 }
