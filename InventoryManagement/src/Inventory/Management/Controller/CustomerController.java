@@ -1,12 +1,12 @@
 package Inventory.Management.Controller;
 
-import Inventory.Management.Service.CustomerService;
+import Inventory.Management.DAO.CustomerDAO;
 
 import java.util.Scanner;
 
 public class CustomerController {
 
-    static CustomerService customerService = new CustomerService();
+    static CustomerDAO customerService = new CustomerDAO();
     public CustomerController() {}
 
     public void customerMenu() {

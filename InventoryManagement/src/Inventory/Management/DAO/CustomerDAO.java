@@ -1,11 +1,10 @@
-package Inventory.Management.Service;
+package Inventory.Management.DAO;
 
 import Inventory.Management.Persistence.Customer;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class CustomerService {
+public class CustomerDAO {
 
     private ArrayList<Customer> customerList = new ArrayList<>();
 
