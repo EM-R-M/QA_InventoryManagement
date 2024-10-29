@@ -5,7 +5,6 @@ public class Product {
     private String productName;
     private double productPrice;
     private String productDescription;
-    private int quantityInStock;
     private static int nextProductId = 0;
 
     public Product(String productName, double productPrice, String productDescription, int quantityInStock) {
@@ -13,7 +12,6 @@ public class Product {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productDescription = productDescription;
-        this.quantityInStock = quantityInStock;
     }
 
     public int getProductId() {
@@ -44,14 +42,6 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public int getQuantityInStock() {
-        return quantityInStock;
-    }
-
-    public void setQuantityInStock(int quantityInStock) {
-        this.quantityInStock = quantityInStock;
-    }
-
     public static int getNextProductId() {
         return nextProductId;
     }
@@ -65,8 +55,7 @@ public class Product {
         return "\nproductId=" + productId +
                 "\nproductName='" + productName + '\'' +
                 "\nproductPrice=" + productPrice +
-                "\nproductDescription='" + productDescription + '\'' +
-                "\nquantityInStock=" + quantityInStock;
+                "\nproductDescription='" + productDescription;
     }
 }
 

@@ -1,5 +1,7 @@
 package Inventory.Management.Controller;
 
+import Inventory.Management.Service.CustomerService;
+
 import java.util.Scanner;
 
 public class CustomerController {
@@ -21,6 +23,7 @@ public class CustomerController {
         switch (userInput.toLowerCase().trim()){
 
             case "a": // CREATE
+                CustomerService.addCustomer();
                 break;
 
             case "f": // READ
