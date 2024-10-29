@@ -1,0 +1,3 @@
+Controller - front-end (all scanner objects)
+DAO (Data access objects) - back end (all links between controller & persistence)
+Persistence - objects/database variables
