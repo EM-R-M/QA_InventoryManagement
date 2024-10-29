@@ -2,4 +2,4 @@ Similar layout to applications made using "Spring".
 
 Controller - front-end (all scanner objects)
 DAO (Data access objects) - back end (all links between controller & persistence)
-Persistence - objects/database variables
+Persistence - objects/database variables (could do SQL queries in here too)
