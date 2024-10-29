@@ -1,4 +1,4 @@
-package Persistence;
+package Inventory.Management.Persistence;
 
 public class Customer {
 

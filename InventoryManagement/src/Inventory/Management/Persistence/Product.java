@@ -1,4 +1,4 @@
-package Persistence;
+package Inventory.Management.Persistence;
 
 public class Product {
     private final int productId;
