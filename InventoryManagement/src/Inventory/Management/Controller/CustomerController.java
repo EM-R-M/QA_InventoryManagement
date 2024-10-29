@@ -44,14 +44,14 @@ public class CustomerController {
                 scanner.nextLine();
                 break;
 
-            case "f": // READ
+            case "f": // READ customer
                 break;
 
-            case "u": // UPDATE
+            case "u": // UPDATE customer
 
                 break;
 
-            case "d": // DELETE
+            case "d": // DELETE customer
                 break;
 
             case "r":

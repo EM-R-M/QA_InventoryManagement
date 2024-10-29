@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CustomerDAO {
 
-    // List to hold all of the created customers
+    // List to hold the created customers
     private ArrayList<Customer> customerList = new ArrayList<>();
 
     // Add a new customer to the list
