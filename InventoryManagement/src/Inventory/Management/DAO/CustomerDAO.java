@@ -25,9 +25,10 @@ public class CustomerDAO {
                 System.out.println("\nCustomer: '" + newCustomer.getCustomerName() + "' successfully added.\n");
             } catch (Exception e) {
                 // Failed to add the new customer to the system
-                System.out.println("\nFailed to add new customer: '" + newCustomer.getCustomerName() + "'.\n");
+                System.out.println("\nFailed to add new customer: '" + newCustomer.getCustomerName() + "'.");
             }
         } else {
+            // Failed to pass basic checks
             System.out.println("\nFailed to add new customer: '" + newCustomer.getCustomerName() + "'.");
             System.out.println("Invalid customer name or email address.\n");
         }

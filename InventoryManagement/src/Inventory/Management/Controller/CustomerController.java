@@ -31,7 +31,7 @@ public class CustomerController {
 
             case "a": // CREATE customer
                 // Get the user to input the customer's details
-                System.out.println("Please input the customer's details below:");
+                System.out.println("Please input the new customer's details below:");
                 System.out.print("\n\t Customer's Name: ");
                 String customerName = scanner.nextLine();
                 System.out.print("\tCustomer's Email: ");
