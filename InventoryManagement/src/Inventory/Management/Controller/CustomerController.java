@@ -1,19 +1,20 @@
 package Inventory.Management.Controller;
 
 import Inventory.Management.DAO.CustomerDAO;
+import Inventory.Management.Persistence.Customer;
 
 import java.util.Scanner;
 
 public class CustomerController {
-
-    // Create static object for accessing all the data access objects
-    static CustomerDAO customerService = new CustomerDAO();
 
     // Empty definition for the controller
     public CustomerController() {}
 
     // Show the customer menu
     public void customerMenu() {
+
+        CustomerDAO customerService = new CustomerDAO();
+
         // Display all the options in the customer menu
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\tCUSTOMER MENU:");
@@ -36,9 +37,9 @@ public class CustomerController {
                 System.out.print("\tCustomer's Email: ");
                 String customerEmail = scanner.nextLine();
                 // Create the customer object
-                customerService.addCustomer(customerName, customerEmail);
-                // Inform the user that the new customer has been created
-                System.out.println("\nCustomer: '" + customerName + "' successfully added.\n");
+                Customer newCustomer = new Customer(customerName, customerEmail);
+                // Add to the database
+                customerService.addCustomer(newCustomer);
                 // Prompt for the user to interact in order to continue
                 System.out.println("PRESS ENTER TO CONTINUE");
                 scanner.nextLine();

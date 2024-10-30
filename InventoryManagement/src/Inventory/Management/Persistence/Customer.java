@@ -2,13 +2,12 @@ package Inventory.Management.Persistence;
 
 public class Customer {
 
-    private static int nextCustomerID = 0;
-    private final int customerID;
+    private int customerID;
     private String customerName;
     private String customerEmail;
 
     public Customer(String customerName, String customerEmail) {
-        this.customerID = nextCustomerID++;
+        this.customerID = -1;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
     }
@@ -16,6 +15,7 @@ public class Customer {
     public int getCustomerID() {
         return customerID;
     }
+    public void setCustomerID(int customerID) {this.customerID = customerID; }
 
     public String getCustomerName() {
         return customerName;
