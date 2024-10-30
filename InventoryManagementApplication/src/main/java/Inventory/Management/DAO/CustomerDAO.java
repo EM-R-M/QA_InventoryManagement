@@ -3,7 +3,8 @@ package Inventory.Management.DAO;
 import Inventory.Management.Persistence.Customer;
 import Inventory.Management.Persistence.DatabaseConnection;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Statement;
 
 public class CustomerDAO {
 
@@ -13,7 +14,7 @@ public class CustomerDAO {
     // Add a new customer to the list
     public void addCustomer(Customer newCustomer){
         // Check the customer's name & email is valid before continuing
-        if ((!newCustomer.getCustomerName().isBlank() && checkEmailValid(newCustomer.getCustomerEmail()))) {
+        if ((!newCustomer.getCustomerName().isEmpty() && checkEmailValid(newCustomer.getCustomerEmail()))) {
             // Create the SQL query to add the customer to the database
             String query = "INSERT INTO customers(customerName, customerEmail) VALUES ('" +
                     newCustomer.getCustomerName() + "', '" + newCustomer.getCustomerEmail() + "');";
@@ -34,23 +35,13 @@ public class CustomerDAO {
         }
     }
 
-
-    /* ==================== //
-    // CODE REFERENCE START //
-    // ==================== */
-
-    // NOTES:
-    // Validate email method adapted and taken from: https://www.baeldung.com/java-email-validation-regex
-
+    // Check whether the email address is a valid address
     private boolean checkEmailValid(String emailAddress){
-        String emailRegex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
+        String emailRegex = "^[\\p{L}0-9!#$%&'*+/=?^_`{|}~-][\\p{L}0-9.!#$%&'*+/=?^_`{|}~-]{0,63}@[\\p{L}0-9-]+(?:\\.[\\p{L}0-9-]{2,6})+$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(emailRegex);
-        java.util.regex.Matcher m = p.matcher(emailRegex);
+        java.util.regex.Matcher m = p.matcher(emailAddress);
+        System.out.println(m.matches());
         return m.matches();
     }
-
-    /* ================== //
-    // CODE REFERENCE END //
-    // ================== */
 
 }

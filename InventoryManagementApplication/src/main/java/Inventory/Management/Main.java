@@ -1,5 +1,6 @@
 package Inventory.Management;
-import Inventory.Management.Controller.*;
+
+import Inventory.Management.Controller.MainMenuController;
 
 public class Main {
 

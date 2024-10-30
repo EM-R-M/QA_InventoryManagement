@@ -21,12 +21,11 @@ public class MainMenuController {
 
             // Display the main menu options
             System.out.println("\n\tMAIN MENU:");
-            System.out.println("""
-                        Would you like to view:\s
-                        \tOrders (O)\s
-                        \tCustomers (C)\s
-                        \tProducts (P)\s
-                        \tQuit (Q)""");
+            System.out.println("Would you like to view:\n" +
+                                "\tOrders (O)\n" +
+                                "\tCustomers (C)\n" +
+                                "\tProducts (P)\n" +
+                                "\tQuit (Q)");
             // Get the user's option selection and go with the
             // corresponding case
             String userInput = scanner.nextLine();

@@ -18,13 +18,12 @@ public class CustomerController {
         // Display all the options in the customer menu
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\tCUSTOMER MENU:");
-        System.out.println("""
-                Would you like to:\s
-                \tADD a customer (A)\s
-                \tFIND a customer (F)\s
-                \tUPDATE a customer (U)\s
-                \tDELETE a customer (D)\s
-                \tRETURN to the main menu (R)""");
+        System.out.println("Would you like to:\n" +
+                            "\tADD a customer (A)\n" +
+                            "\tFIND a customer (F)\n" +
+                            "\tUPDATE a customer (U)\n" +
+                            "\tDELETE a customer (D)\n" +
+                            "\tRETURN to the main menu (R)");
         // get the user's input and perform the corresponding action
         String userInput = scanner.nextLine();
         switch (userInput.toLowerCase().trim()){
