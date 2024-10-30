@@ -8,7 +8,7 @@ import java.sql.*;
 public class CustomerDAO {
 
     // Variable for database connections
-    DatabaseConnection inventoryDatabase = new DatabaseConnection("jdbc:mysql://localhost:3306/inventorymanagement", "root", "root");
+    DatabaseConnection inventoryDatabase = new DatabaseConnection();
 
     // Add a new customer to the list
     public void addCustomer(Customer newCustomer){
