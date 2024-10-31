@@ -25,7 +25,6 @@ public class CustomerDAO {
             return true;
         } catch (Exception e) {
             // Failed to add the new customer to the system
-            e.printStackTrace();
             System.out.println("\nFailed to add new customer: '" + newCustomer.getCustomerName() + "'.");
             return false;
         }

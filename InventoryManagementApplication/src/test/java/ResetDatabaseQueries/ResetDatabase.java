@@ -49,7 +49,6 @@ public class ResetDatabase {
         } catch (Exception e) {
 
             // Failed to add the new customer to the system
-            e.printStackTrace();
             System.out.println("\nFailed to reset the database. Expect failure in tests.");
         }
     }
