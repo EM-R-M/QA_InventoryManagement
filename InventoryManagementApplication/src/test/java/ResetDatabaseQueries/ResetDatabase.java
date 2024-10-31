@@ -22,9 +22,9 @@ public class ResetDatabase {
         String removeTables = "DROP TABLE IF EXISTS customers;";
         String createTables = "CREATE TABLE IF NOT EXISTS customers (" +
                                 "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                                "name VARCHAR(255), " +
-                                "email VARCHAR(255)); ";
-        String insertData = "INSERT INTO customers (name, email) VALUES " +
+                                "customerName VARCHAR(255), " +
+                                "customerEmail VARCHAR(255)); ";
+        String insertData = "INSERT INTO customers (customerName, customerEmail) VALUES " +
                                 "('Emily', 'emily@email.com'), " +
                                 "('John', 'john@email.com'), " +
                                 "('Joe', 'joe@email.com');";
@@ -36,12 +36,15 @@ public class ResetDatabase {
 
             Statement statement1 = conn.createStatement();
             statement1.execute(removeTables);
-
+            System.out.println("Removed Tables");
             Statement statement2 = conn.createStatement();
             statement2.execute(createTables);
-
+            System.out.println("Added Tables");
             Statement statement3 = conn.createStatement();
             statement3.execute(insertData);
+            System.out.println("Inserted Data");
+
+            conn.commit();
 
         } catch (Exception e) {
 

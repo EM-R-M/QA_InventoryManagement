@@ -15,7 +15,7 @@ public class CustomerDAO {
 
     public boolean addCustomer(Customer newCustomer){
         // Create the SQL query to add the customer to the database
-        String query = "INSERT INTO customers VALUES (customerName, customerEmail) VALUES ('" +
+        String query = "INSERT INTO customers (customerName, customerEmail) VALUES ('" +
                 newCustomer.getCustomerName() + "', '" + newCustomer.getCustomerEmail() + "');";
         // Connect to the database and upload the customer's information
         try (Connection conn = inventoryDatabase.connect()){

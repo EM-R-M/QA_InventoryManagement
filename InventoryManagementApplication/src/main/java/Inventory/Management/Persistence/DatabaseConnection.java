@@ -25,7 +25,7 @@ public class DatabaseConnection {
             appProps.load(new FileInputStream(appConfigPath));
             if (appProps.getProperty("activeEnvironment").equals("dev")){
                 this.classForName="org.h2.Driver";
-                this.jdbcConnectionURL = "jdbc:h2:mem:test";
+                this.jdbcConnectionURL = "jdbc:h2:~/test";
                 this.username="sa";
                 this.password="";
             }
