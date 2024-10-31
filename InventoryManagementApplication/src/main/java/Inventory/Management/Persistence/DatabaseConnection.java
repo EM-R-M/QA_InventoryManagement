@@ -10,6 +10,7 @@ import java.util.Properties;
 
 public class DatabaseConnection {
 
+    private String environment;
     private String classForName;
     private String jdbcConnectionURL;
     private String username;
