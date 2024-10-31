@@ -1,12 +1,18 @@
+package ResetDatabaseQueries;
+
 import Inventory.Management.Persistence.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
-public class resetDatabase {
+public class ResetDatabase {
 
-    DatabaseConnection inventoryDatabase = new DatabaseConnection();
+    DatabaseConnection inventoryDatabase;
+
+    public ResetDatabase(DatabaseConnection database){
+        this.inventoryDatabase = database;
+    }
 
     public void reset(){
 

@@ -4,6 +4,7 @@ import Inventory.Management.DAO.CustomerDAO;
 import Inventory.Management.Persistence.Customer;
 
 import Inventory.Management.Persistence.DatabaseConnection;
+import ResetDatabaseQueries.ResetDatabase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -25,13 +26,15 @@ public class AddCustomerStepDefinitions {
 
     @When ("I add a new customer")
     public void addNewCustomer(){
+        ResetDatabase resetDatabase = new ResetDatabase(inventoryDatabase);
+        resetDatabase.reset();
         customerDAO.addCustomer(customer);
     }
 
     @Then ("the result is the customer being added to the database")
     public void getTotalCustomers(){
         int expectedNoCustomers = 4;
-        List<Customer> actualNoCustomers = customerDAO.getAllCustomers(customer);
+        List<Customer> actualNoCustomers = customerDAO.getAllCustomers();
         assertEquals(expectedNoCustomers, actualNoCustomers.size());
     }
 
