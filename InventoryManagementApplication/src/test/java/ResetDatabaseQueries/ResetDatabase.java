@@ -19,40 +19,34 @@ public class ResetDatabase {
         // Add code in here to reset the database in between testing to ensure consistent results
 
         // Create sql queries
-        String createTables = "DROP TABLE IF EXISTS customers; " +
-                "CREATE TABLE customers (" +
-                "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                "name VARCHAR(255), " +
-                "email VARCHAR(255)); ";
-        String insertData = "INSERT INTO customers (name, email) VALUES (?, ?);";
+        String removeTables = "DROP TABLE IF EXISTS customers;";
+        String createTables = "CREATE TABLE IF NOT EXISTS customers (" +
+                                "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                                "name VARCHAR(255), " +
+                                "email VARCHAR(255)); ";
+        String insertData = "INSERT INTO customers (name, email) VALUES " +
+                                "('Emily', 'emily@email.com'), " +
+                                "('John', 'john@email.com'), " +
+                                "('Joe', 'joe@email.com');";
 
         // Connect to the database and upload the customer's information
         try (Connection conn = inventoryDatabase.connect();){
 
             // Execute sql queries
 
-            Statement statement = conn.createStatement();
-            statement.executeUpdate(createTables);
+            Statement statement1 = conn.createStatement();
+            statement1.execute(removeTables);
 
-            PreparedStatement stmt = conn.prepareStatement(insertData);
+            Statement statement2 = conn.createStatement();
+            statement2.execute(createTables);
 
-            stmt.setString(1, "Emily");
-            stmt.setString(2, "emily@email.com");
-            stmt.executeUpdate();
-
-            stmt.setString(1, "John");
-            stmt.setString(2, "john@email.com");
-            stmt.executeUpdate();
-
-            stmt.setString(1, "Anna");
-            stmt.setString(2, "anna@email.com");
-            stmt.executeUpdate();
-
-            conn.commit();
+            Statement statement3 = conn.createStatement();
+            statement3.execute(insertData);
 
         } catch (Exception e) {
 
             // Failed to add the new customer to the system
+            e.printStackTrace();
             System.out.println("\nFailed to reset the database. Expect failure in tests.");
         }
     }
