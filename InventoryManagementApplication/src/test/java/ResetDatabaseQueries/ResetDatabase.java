@@ -21,7 +21,7 @@ public class ResetDatabase {
         // Create sql queries
         String removeTables = "DROP TABLE IF EXISTS customers;";
         String createTables = "CREATE TABLE IF NOT EXISTS customers (" +
-                                "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                                "customerID INT AUTO_INCREMENT PRIMARY KEY, " +
                                 "customerName VARCHAR(255), " +
                                 "customerEmail VARCHAR(255)); ";
         String insertData = "INSERT INTO customers (customerName, customerEmail) VALUES " +
@@ -34,15 +34,17 @@ public class ResetDatabase {
 
             // Execute sql queries
 
+            // Delete table (if exists)
             Statement statement1 = conn.createStatement();
             statement1.execute(removeTables);
-            System.out.println("Removed Tables");
+
+            // Add table into database
             Statement statement2 = conn.createStatement();
             statement2.execute(createTables);
-            System.out.println("Added Tables");
+
+            // Add information into the table
             Statement statement3 = conn.createStatement();
             statement3.execute(insertData);
-            System.out.println("Inserted Data");
 
             conn.commit();
 

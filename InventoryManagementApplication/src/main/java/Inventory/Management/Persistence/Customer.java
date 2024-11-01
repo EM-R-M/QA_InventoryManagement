@@ -1,5 +1,7 @@
 package Inventory.Management.Persistence;
 
+import java.util.Objects;
+
 public class Customer {
 
     private int customerID;
@@ -8,6 +10,12 @@ public class Customer {
 
     public Customer(String customerName, String customerEmail) {
         this.customerID = -1;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+    }
+
+    public Customer(int customerID, String customerName, String customerEmail) {
+        this.customerID = customerID;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
     }
@@ -37,4 +45,24 @@ public class Customer {
                 "\ncustomerName='" + customerName + '\'' +
                 "\ncustomerEmail='" + customerEmail + "\n";
     }
+
+
+    // REFERENCE FROM COPILOT
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return customerID == customer.customerID &&
+                Objects.equals(customerName, customer.customerName) &&
+                Objects.equals(customerEmail, customer.customerEmail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerID, customerName, customerEmail);
+    }
+
+    // END OF REFERENCE
+
 }
