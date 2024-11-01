@@ -47,7 +47,18 @@ public class Customer {
     }
 
 
-    // REFERENCE FROM COPILOT
+    /////////////////////////////////////////////////////////////
+    //                EXPLANATION OF CODE BELOW                //
+    /////////////////////////////////////////////////////////////
+    // When attempting to "assertEquals" in the test cases, it //
+    // was failing although the strings are identical. This is //
+    // because Java will compare the memory addresses and not  //
+    // the values themselves. By overriding this, it compares  //
+    // the contents of the objects fields, letting them be     //
+    // logically the same, although they're in two different   //
+    // instances of memory.                                    //
+    /////////////////////////////////////////////////////////////
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,6 +74,8 @@ public class Customer {
         return Objects.hash(customerID, customerName, customerEmail);
     }
 
-    // END OF REFERENCE
+    /////////////////////////////////////////////////////////////
+    //                     END OF SEGMENT                      //
+    /////////////////////////////////////////////////////////////
 
 }
